@@ -1,13 +1,14 @@
 import os
 import glob
 import argparse
+import cv2
 
 # Kerasa / TensorFlow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '5'
 from keras.models import load_model
 from layers import BilinearUpSampling2D
 from loss import depth_loss_function
-from utils import predict, load_images, display_images
+from utils import predict, load_images, display_images, save_images
 from matplotlib import pyplot as plt
 
 # Argument Parser
@@ -33,8 +34,11 @@ print('\nLoaded ({0}) images of size {1}.'.format(inputs.shape[0], inputs.shape[
 # Compute results
 outputs = predict(model, inputs)
 
+save_images("test.png", outputs, inputs=inputs)
+
 # Display results
-viz = display_images(outputs.copy(), inputs.copy())
-plt.figure(figsize=(10,5))
-plt.imshow(viz)
-plt.show()
+#cv2.imwrite("test.png", outputs[0])
+#viz = display_images(outputs.copy(), inputs.copy())
+#plt.figure(figsize=(10,5))
+#plt.imshow(viz)
+#plt.show()

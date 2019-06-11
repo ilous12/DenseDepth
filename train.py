@@ -46,11 +46,12 @@ if args.data == 'unreal': train_generator, test_generator = get_unreal_train_tes
 runID = str(int(time.time())) + '-n' + str(len(train_generator)) + '-e' + str(args.epochs) + '-bs' + str(args.bs) + '-lr' + str(args.lr) + '-' + args.name
 outputPath = './models/'
 runPath = outputPath + runID
-pathlib.Path(runPath).mkdir(parents=True, exist_ok=True)
+#pathlib.Path(runPath).mkdir(parents=True, exist_ok=True)
+pathlib.Path(runPath).mkdir(parents=True)
 print('Output: ' + runPath)
 
  # (optional steps)
-if True:
+if False:
     # Keep a copy of this training script and calling arguments
     with open(__file__, 'r') as training_script: training_script_content = training_script.read()
     training_script_content = '#' + str(sys.argv) + '\n' + training_script_content

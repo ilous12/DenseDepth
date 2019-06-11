@@ -24,6 +24,8 @@ def get_nyu_callbacks(model, basemodel, train_generator, test_generator, test_se
     # Callback: Tensorboard
     class LRTensorBoard(keras.callbacks.TensorBoard):
         def __init__(self, log_dir):
+            print("## GWANGHEE ## log_dir=" + log_dir)
+            #super(LRTensorBoard, self).__init__(log_dir=log_dir)
             super().__init__(log_dir=log_dir)
 
             self.num_samples = 6
