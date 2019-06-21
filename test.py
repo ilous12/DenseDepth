@@ -6,7 +6,7 @@ import cv2
 # Kerasa / TensorFlow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '5'
 from keras.models import load_model
-from layers import BilinearUpSampling2D
+from bilinearupsampling import BilinearUpSampling2D
 from loss import depth_loss_function
 from utils import predict, load_images, display_images, save_images
 from matplotlib import pyplot as plt

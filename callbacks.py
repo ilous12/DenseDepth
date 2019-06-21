@@ -13,7 +13,7 @@ def make_image(tensor):
     height, width, channel = tensor.shape
     image = Image.fromarray(tensor.astype('uint8'))
     output = io.BytesIO()
-    image.save(output, format='JPEG', quality=90)
+    image.save(output, format='JPEG', quality=100)
     image_string = output.getvalue()
     output.close()
     return tf.Summary.Image(height=height, width=width, colorspace=channel, encoded_image_string=image_string)
